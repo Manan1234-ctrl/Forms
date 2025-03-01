@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Grandmasters - MChess</title>
+    <link rel="icon" href="crown.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .search-box {
+            padding: 5px 10px 5px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+        .search-icon {
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+        .container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .grandmaster {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+            background: #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .grandmaster img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .grandmaster a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            flex-grow: 1;
+        }
+        .grandmaster a:hover {
+            text-decoration: underline;
+        }
+        .ratings {
+            font-size: 16px;
+            color: #555;
+            text-align: right;
+        }
+    </style>
+    <script>
+        function searchGrandmasters() {
+            let input = document.getElementById('searchBox').value.toLowerCase();
+            let grandmasters = document.getElementsByClassName('grandmaster');
+            
+            for (let gm of grandmasters) {
+                let name = gm.getElementsByTagName('a')[0].innerText.toLowerCase();
+                if (name.includes(input)) {
+                    gm.style.display = "flex";
+                } else {
+                    gm.style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="color: white; text-decoration: none;">⬅ Back to Home</a>
+        <div class="search-container">
+            <img src="magnifying-glass.png" alt="Search" class="search-icon">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search grandmasters..." onkeyup="searchGrandmasters()">
+        </div>
+    </header>
+    <div class="container">
+        <h2>Top Chess Grandmasters</h2>
+        <div class="grandmaster">
+            <img src="magnus.jpg" alt="Magnus Carlsen">
+            <a href="https://en.wikipedia.org/wiki/Magnus_Carlsen" target="_blank">Magnus Carlsen</a>
+            <div class="ratings">Classical: 2882 | Rapid: 2909 | Blitz: 2964</div>
+        </div>
+        <div class="grandmaster">
+            <img src="kasparov.jpg" alt="Garry Kasparov">
+            <a href="https://en.wikipedia.org/wiki/Garry_Kasparov" target="_blank">Garry Kasparov</a>
+            <div class="ratings">Classical: 2851 | Rapid: N/A | Blitz: N/A</div>
+        </div>
+        <div class="grandmaster">
+            <img src="anand.jpg" alt="Viswanathan Anand">
+            <a href="https://en.wikipedia.org/wiki/Viswanathan_Anand" target="_blank">Viswanathan Anand</a>
+            <div class="ratings">Classical: 2817 | Rapid: 2821 | Blitz: 2844</div>
+        </div>
+        <div class="grandmaster">
+            <img src="fischer.jpg" alt="Bobby Fischer">
+            <a href="https://en.wikipedia.org/wiki/Bobby_Fischer" target="_blank">Bobby Fischer</a>
+            <div class="ratings">Classical: 2785 | Rapid: N/A | Blitz: N/A</div>
+        </div>
+        <div class="grandmaster">
+            <img src="hikaru.jpg" alt="Hikaru Nakamura">
+            <a href="https://en.wikipedia.org/wiki/Hikaru_Nakamura" target="_blank">Hikaru Nakamura</a>
+            <div class="ratings">Classical: 2816 | Rapid: 2850 | Blitz: 2900</div>
+        </div>
+    </div>
+</body>
+</html>
